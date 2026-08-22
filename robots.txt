@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ug88.diy/sitemap.xml
