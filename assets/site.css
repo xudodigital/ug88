@@ -1508,3 +1508,22 @@ html.light .modal-message { color: #111; }
 
 html.light .notfound h1 { color: #222; }
 html.light .notfound-links a { color: #0d430f; }
+
+.text-page .page-cta { margin-top: 1.75rem; }
+.text-page .page-cta-btn {
+  display: inline-block;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  padding: 0 1.75rem;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color .2s, transform .1s;
+}
+.text-page .page-cta-btn:hover  { background: var(--color-accent-hover); }
+.text-page .page-cta-btn:active { transform: scale(.97); }
+
+html.light .text-page .page-cta-btn { color: #000; text-decoration: none; }

@@ -364,6 +364,10 @@ Array.prototype.forEach.call(document.querySelectorAll(".game-item"), function (
   linkTo(a, SIGNUP_PATH);
 });
 
+Array.prototype.forEach.call(document.querySelectorAll(".page-cta-btn"), function (a) {
+  linkTo(a, SIGNUP_PATH);
+});
+
 Array.prototype.forEach.call(document.querySelectorAll(".provider-tile"), function (b) { linkTo(b, SIGNUP_PATH); });
 Array.prototype.forEach.call(document.querySelectorAll(".promo-card"),    function (d) { linkTo(d, SIGNUP_PATH); });
 document.querySelector(".header-left a").setAttribute("href", OWN_HOME);
