@@ -1,0 +1,33 @@
+# Cache-Control untuk Cloudflare Pages.
+#
+# Aset di bawah ini praktis tidak pernah berubah isinya: kalau gambar/font
+# diganti, namanya ikut berganti. Jadi aman di-cache setahun + immutable.
+/assets/cdn/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/_next/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/favicon-square.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# PENTING: site.css dan site.js TIDAK diberi versi di namanya, jadi berubah
+# isinya setiap deploy dengan nama yang sama. Kalau ikut di-cache setahun,
+# pengunjung lama akan memakai CSS/JS basi sampai setahun ke depan.
+# Sengaja dibiarkan pendek; perbaikan yang benar adalah memberi hash pada
+# nama berkasnya (mis. site.a1b2c3.css) lalu memindahkannya ke aturan
+# immutable di atas.
+/assets/site.css
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/site.js
+  Cache-Control: public, max-age=3600, must-revalidate
