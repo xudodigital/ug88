@@ -1528,11 +1528,17 @@ html.light .notfound-links a { color: #0d430f; }
 
 html.light .text-page .page-cta-btn { color: #000; text-decoration: none; }
 
-.page-intro { margin-bottom: 0.75rem; }
+/* H1 beranda disembunyikan secara visual agar tampilan sama dengan money site.
+   Memakai pola visually-hidden (bukan display:none) supaya teksnya tetap nyata
+   di DOM dan tetap terbaca screen reader -- ini justru lebih aksesibel daripada
+   kondisi sebelumnya, ketika H1 hanya berisi gambar logo. */
 .page-intro h1 {
-  font-size: 1.125rem; line-height: 1.625rem; font-weight: 700;
-  color: #ffd200;
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
-@media (min-width: 1024px) { .page-intro h1 { font-size: 1.5rem; line-height: 2rem; } }
-
-html.light .page-intro h1 { color: #0d430f; }
