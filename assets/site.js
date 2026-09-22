@@ -164,10 +164,10 @@ topBtn.addEventListener("click", function () {
 });
 
 document.getElementById("navList").addEventListener("click", function (e) {
-  var head = e.target.closest(".nav-head");
-  if (!head) return;
+  var arrow = e.target.closest(".nav-arrow");
+  if (!arrow) return;
 
-  var parent = head.closest(".nav-toggle");
+  var parent = arrow.closest(".nav-toggle");
   if (!parent.querySelector(".nav-sub")) return;
 
   e.preventDefault();
@@ -341,11 +341,9 @@ Array.prototype.forEach.call(document.querySelectorAll("#navList > li"), functio
   var link = li.querySelector(".nav-link");
   var hasSub = !!li.querySelector(".nav-sub");
 
-  if (hasSub) {
-    link.removeAttribute("href");
-  } else if (label === "trang chủ") {
-    linkTo(link, SIGNUP_PATH);
-  } else {
+  // Item bersubmenu & "Trang Chủ" kini <a href> internal di HTML -- biarkan apa adanya.
+  // Sisanya (Khuyến Mãi / Trò Chơi Loại Trừ / VIP) belum punya halaman -> modal.
+  if (!hasSub && label !== "trang chủ") {
     toModal(link);
   }
 
@@ -354,10 +352,6 @@ Array.prototype.forEach.call(document.querySelectorAll("#navList > li"), functio
 
 Array.prototype.forEach.call(document.querySelectorAll(".modal-login, .modal-register"), function (b) {
   linkTo(b, SIGNUP_PATH);
-});
-
-Array.prototype.forEach.call(document.querySelectorAll(".category-card"), function (a) {
-  linkTo(a, SIGNUP_PATH);
 });
 
 Array.prototype.forEach.call(document.querySelectorAll(".game-item"), function (a) {
