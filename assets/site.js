@@ -3,6 +3,19 @@ var CDN = "assets";
 
 if (document.getElementById("bannerTrack")) {
 
+// Marquee butuh 2x konten agar animasi translateX(-50%) melooping mulus.
+// Duplikatnya dibuat di sini, bukan ditulis dua kali di HTML, supaya crawler
+// tidak melihat 17 kartu game yang sama dua kali.
+var marqueeTrack = document.querySelector(".marquee-track");
+if (marqueeTrack) {
+  Array.prototype.slice.call(marqueeTrack.children).forEach(function (k) {
+    var dup = k.cloneNode(true);
+    dup.setAttribute("aria-hidden", "true");
+    dup.setAttribute("tabindex", "-1");
+    marqueeTrack.appendChild(dup);
+  });
+}
+
 var categoryRow = document.querySelector(".category-grid");
 var categoryCards = Array.prototype.slice.call(categoryRow.children);
 var prevBtn = document.querySelector(".cat-prev");

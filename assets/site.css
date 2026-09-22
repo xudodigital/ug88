@@ -1527,3 +1527,12 @@ html.light .notfound-links a { color: #0d430f; }
 .text-page .page-cta-btn:active { transform: scale(.97); }
 
 html.light .text-page .page-cta-btn { color: #000; text-decoration: none; }
+
+.page-intro { margin-bottom: 0.75rem; }
+.page-intro h1 {
+  font-size: 1.125rem; line-height: 1.625rem; font-weight: 700;
+  color: #ffd200;
+}
+@media (min-width: 1024px) { .page-intro h1 { font-size: 1.5rem; line-height: 2rem; } }
+
+html.light .page-intro h1 { color: #0d430f; }
